@@ -1,0 +1,26 @@
+{
+  "name": "ahoy",
+  "version": "1.0.0",
+  "description": "A simple interface for managing releases and deployments.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aelawson/ahoy"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Andrew Lawson",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^15.0.24",
+    "@types/react-dom": "^15.5.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.1.3",
+    "source-map-loader": "^0.2.1",
+    "typescript": "^2.3.2"
+  }
+}
