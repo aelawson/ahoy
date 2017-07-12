@@ -1,9 +1,11 @@
 import * as React from "react";
 
+const styles = require("./header.module.less");
+
 class ReleaseHeader extends React.Component<any, any> {
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <h1>
           Team Name
         </h1>
