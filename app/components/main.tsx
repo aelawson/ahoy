@@ -1,18 +1,28 @@
 import * as React from "react";
 
-import ReleaseHeader from "./release/header";
-import ReleaseContent from "./release/content";
+import {deepOrange500} from 'material-ui/styles/colors';
+import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
+
+import NavBar from "./navbar";
+import ReleaseMetadata from "./release/metadata";
 
 const styles = require("./main.module.less");
+const muiTheme = getMuiTheme({
+  palette: {
+    accent1Color: deepOrange500,
+  },
+});
+
 
 class Main extends React.Component<any, any> {
   render() {
     return (
-      <div>
-        <h1>Test title</h1>
-        <ReleaseHeader></ReleaseHeader>
-        <ReleaseContent></ReleaseContent>
-      </div>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div>
+          <NavBar/>
+          <ReleaseMetadata/>
+        </div>
+      </MuiThemeProvider>
     )
   }
 }
