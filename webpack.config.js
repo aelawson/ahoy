@@ -2,14 +2,14 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./app/index.tsx",
+  entry: path.resolve(__dirname, "app/index.tsx"),
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json", ".less"]
   },
   module: {
     rules: [
@@ -20,17 +20,22 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.less$/,
         use: [
-          "style-loader",
-          "css-loader"
-        ]
-      },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        use: [
-          "source-map-loader"
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              camelCase: true,
+              modules: true,
+              localIdentName: '[name]__[local]--[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'less-loader'
+          }
         ]
       }
     ]
