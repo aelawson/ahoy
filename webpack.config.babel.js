@@ -1,11 +1,11 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
   entry: path.resolve(__dirname, "app/index.tsx"),
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "build")
   },
   devtool: "source-map",
   resolve: {
