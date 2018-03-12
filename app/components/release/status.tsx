@@ -18,6 +18,13 @@ class ReleaseStatus extends React.Component<any, any> {
           subtitle="Release Manager"
           avatar="http://via.placeholder.com/350x150"
         />
+        <CardText>
+          Current Stage: <span className={styles.development}>Development</span>
+          <br/>
+          Next Stage: <span className={styles.staging}>Staging</span>
+          <br/>
+          Will Occur On: November 4
+        </CardText>
       </Card>
     )
   }
