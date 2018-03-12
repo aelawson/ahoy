@@ -8,6 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, "build")
   },
   devtool: "source-map",
+  devServer: {
+    compress: true,
+    port: 8080
+  },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json", ".less"]
   },
