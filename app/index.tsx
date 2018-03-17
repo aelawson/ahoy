@@ -1,19 +1,27 @@
 import * as React from "react";
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import * as ReactDOM from "react-dom";
-
+import thunkMiddleware from 'redux-thunk'
+import { createLogger } from 'redux-logger';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-
-import * as injectTapEventPlugin from "react-tap-event-plugin";
 
 import Main from "./components/main";
 import reducer from './reducers';
+import { selectTeam, fetchTeam } from './actions/teams';
 
+const loggerMiddleware = createLogger()
 const styles = require('./styles/global.less');
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+  )
+);
 
-injectTapEventPlugin();
+store.dispatch(selectTeam(1))
+store.dispatch(fetchTeam(1))
 
 class App extends React.Component<any, any> {
   render() {
