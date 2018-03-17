@@ -7,6 +7,9 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "build")
   },
+  node: {
+    fs: 'empty'
+  },
   devtool: "source-map",
   devServer: {
     compress: true,
