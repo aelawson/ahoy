@@ -17,8 +17,8 @@ export class Teams extends React.Component<any, any> {
       return (
         <div>
           {
-            teams.data.map((team: object) => {
-              return <Team/>
+            teams.data.map((team: any) => {
+              return <Team name={team.name}/>
             })
           }
         </div>
