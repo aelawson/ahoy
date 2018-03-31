@@ -4,7 +4,8 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
 
 import NavBar from "./navbar";
-import ReleaseMetadata from "./release/metadata";
+import ReleaseMetadata from "../components/release/metadata";
+import Teams from "../containers/teams";
 
 const styles = require("./main.module.less");
 const muiTheme = getMuiTheme({
@@ -13,14 +14,13 @@ const muiTheme = getMuiTheme({
   },
 });
 
-
 class Main extends React.Component<any, any> {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <NavBar/>
-          <ReleaseMetadata/>
+          <Teams/>
         </div>
       </MuiThemeProvider>
     )

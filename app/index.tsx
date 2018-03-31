@@ -6,7 +6,7 @@ import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-import Main from "./components/main";
+import Main from "./containers/main";
 import rootReducer from './reducers';
 import { selectTeam, fetchTeam } from './actions/teams';
 
@@ -20,9 +20,6 @@ const store = createStore(
     loggerMiddleware
   )
 );
-
-store.dispatch(selectTeam(1))
-store.dispatch(fetchTeam(1))
 
 class App extends React.Component<any, any> {
   render() {
