@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import teamsReducer from './teams';
+import { teamsReducer } from './teams';
 
 const rootReducer = combineReducers({
   teams: teamsReducer
