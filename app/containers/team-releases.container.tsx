@@ -1,11 +1,11 @@
 import * as React from "react";
 import {Card, CardTitle, CardText, CardHeader} from 'material-ui/Card';
 
-import Repositories from './repositories';
+import Repositories from '../components/release/repositories';
 
-const styles = require("./content.module.less");
+const styles = require("./team-releases.container.less");
 
-class ReleaseContent extends React.Component<any, any> {
+class Team extends React.Component<any, any> {
   render() {
     return (
       <Card className="section">
@@ -21,4 +21,4 @@ class ReleaseContent extends React.Component<any, any> {
   }
 }
 
-export default ReleaseContent;
+export default Team;
