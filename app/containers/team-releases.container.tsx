@@ -1,24 +1,19 @@
-import * as React from "react";
-import {Card, CardTitle, CardText, CardHeader} from 'material-ui/Card';
+import * as React from 'react';
 
-import Repositories from '../components/release/repositories';
+import Card from 'material-ui/Card';
 
-const styles = require("./team-releases.container.less");
+import Status from '../components/team-release/status.component';
+import Content from '../components/team-release/content.component';
 
-class Team extends React.Component<any, any> {
+class TeamReleases extends React.Component<any, any> {
   render() {
     return (
-      <Card className="section">
-        <CardTitle
-          title="Release Plan"
-          subtitle="Configure release and execute action items"
-        />
-        <CardText>
-          <Repositories/>
-        </CardText>
-      </Card>
-    )
+      <div>
+        <Status/>
+        <Content/>
+      </div>
+    );
   }
 }
 
-export default Team;
+export default TeamReleases;
