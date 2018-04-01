@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {List, ListItem} from 'material-ui/List';
 
 import { fetchTeams } from '../actions/teams';
-import Team from '../components/team';
+import Team from '../components/team.component';
 
 export class Teams extends React.Component<any, any> {
 
@@ -12,13 +12,13 @@ export class Teams extends React.Component<any, any> {
   }
 
   render() {
-    const { teams } = this.props;
+    const { teams, history } = this.props;
     if (teams.meta && !teams.meta.isFetching) {
       return (
         <div>
           {
             teams.data.map((team: any) => {
-              return <Team name={team.name}/>
+              return <Team id={team.id} name={team.name} history={history}/>
             })
           }
         </div>
