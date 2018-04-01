@@ -1,39 +1,43 @@
 import * as React from "react";
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import * as ReactDOM from "react-dom";
-import thunkMiddleware from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import createHistory from 'history/createBrowserHistory'
+import { Route } from 'react-router-dom';
+import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 
-import Main from "./containers/main";
-import rootReducer from './reducers';
+import App from './containers/app';
+import Teams from './containers/teams';
+
+import * as reducers from './reducers';
 import { selectTeam, fetchTeam } from './actions/teams';
 
-const loggerMiddleware = createLogger();
+const history = createHistory();
+const router = routerMiddleware(history);
+const logger = createLogger();
 
-const styles = require('./styles/global.less');
+console.log(reducers);
+
 const store = createStore(
-  rootReducer,
+  combineReducers({
+    ...reducers,
+    router: routerReducer
+  }),
   applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware
+    router,
+    logger,
+    thunkMiddleware
   )
 );
 
-class App extends React.Component<any, any> {
-  render() {
-    return (
-      <Provider store={store}>
-        <MuiThemeProvider>
-          <Main/>
-        </MuiThemeProvider>
-      </Provider>
-    )
-  }
-}
-
 ReactDOM.render(
-  <App/>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Route path="/" component={App}>
+      </Route>
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('app') as HTMLElement
 );
