@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Card, CardText, CardTitle } from 'material-ui/Card';
+import { Card, CardActions, CardHeader } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 
 const styles = require("./team.component.less");
 
@@ -7,14 +8,15 @@ const Team = (props: any) => {
   const { name } = props;
 
   return (
-    <Card>
-      <CardTitle
+    <Card className={styles.cardListItem}>
+      <CardHeader
         title={name}
         subtitle="Team description"
+        avatar="http://via.placeholder.com/350x150"
       />
-      <CardText>
-        Team information goes here.
-      </CardText>
+      <CardActions>
+        <FlatButton label="Releases" primary={true}/>
+      </CardActions>
     </Card>
   );
 };
