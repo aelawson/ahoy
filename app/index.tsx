@@ -9,7 +9,6 @@ import { Route } from 'react-router-dom';
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 
 import App from './containers/app';
-import Teams from './containers/teams';
 
 import * as reducers from './reducers';
 import { selectTeam, fetchTeam } from './actions/teams';
@@ -35,8 +34,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Route path="/" component={App}>
-      </Route>
+      <App/>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('app') as HTMLElement

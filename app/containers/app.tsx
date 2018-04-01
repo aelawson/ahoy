@@ -1,7 +1,9 @@
 import * as React from "react";
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
-import {deepOrange500} from 'material-ui/styles/colors';
-import {MuiThemeProvider, getMuiTheme} from 'material-ui/styles';
+import { deepOrange500 } from 'material-ui/styles/colors';
+import { MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
 
 import NavBar from "./navbar";
 import ReleaseMetadata from "../components/release/metadata";
@@ -18,13 +20,14 @@ class App extends React.Component<any, any> {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <NavBar/>
-          <Teams/>
-        </div>
+        <NavBar/>
+        <Route path="/teams" component={Teams}/>
+        <Route exact path='/' component={Teams}/>
       </MuiThemeProvider>
     )
   }
 }
 
-export default App;
+export default connect((state: any) => {
+  return { location: state.router.location };
+})(App);
