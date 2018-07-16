@@ -13,6 +13,9 @@ import App from './containers/app';
 import * as reducers from './reducers';
 import { selectTeam, fetchTeam } from './actions/teams';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootswatch/dist/sandstone/bootstrap.css';
+
 const history = createHistory();
 const router = routerMiddleware(history);
 const logger = createLogger();

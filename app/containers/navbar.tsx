@@ -1,15 +1,12 @@
 import * as React from 'react';
-
-import {Card, CardTitle, CardText} from 'material-ui/Card';
-import AppBar from 'material-ui/AppBar';
+import { Navbar, NavbarBrand } from 'reactstrap';
 
 class NavBar extends React.Component<any, any> {
   render() {
     return (
-      <AppBar
-        title="Ahoy"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
-      />
+      <Navbar color="primary" dark expand="md">
+        <NavbarBrand>Ahoy</NavbarBrand>
+      </Navbar>
     );
   }
 }

@@ -1,29 +1,51 @@
 import * as React from 'react';
 
-import RaisedButton from 'material-ui/RaisedButton';
-import {Card, CardText, CardTitle} from 'material-ui/Card';
-import Checkbox from 'material-ui/Checkbox';
-import {List, ListItem} from 'material-ui/List';
+import { Button, InputGroupText, InputGroupAddon } from 'reactstrap';
+import { Card, CardTitle, CardBody } from 'reactstrap';
+import { InputGroup, Input } from 'reactstrap';
 
 const styles = require("./repositories.module.less");
 
 class Repositories extends React.Component<any, any> {
   render() {
     return (
-      <Card className={styles.releaseRepositories}>
-        <CardTitle
-          title="Select Repositories"
-          subtitle="Selected repositories will be included for release"
-        />
-        <CardText>
-          <List>
-            <ListItem primaryText="UnifiedDashboard" leftCheckbox={<Checkbox/>}/>
-            <ListItem primaryText="Portal-API" leftCheckbox={<Checkbox/>}/>
-            <ListItem primaryText="Checkout-UI" leftCheckbox={<Checkbox/>}/>
-            <ListItem primaryText="AdminDashboard" leftCheckbox={<Checkbox/>}/>
-          </List>
-          <RaisedButton className={styles.buttonSubmit} label="Select" primary={true}/>
-        </CardText>
+      <Card>
+        <CardBody>
+          <CardTitle>Select Repositories</CardTitle>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <Input addon type="checkbox" aria-label="Dashboard"/>
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input placeholder="Dashboard" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <Input addon type="checkbox" aria-label="API"/>
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input placeholder="API" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <Input addon type="checkbox" aria-label="Admin"/>
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input placeholder="Admin" />
+          </InputGroup>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <Input addon type="checkbox" aria-label="Checkout"/>
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input placeholder="Checkout" />
+          </InputGroup>
+          <Button color="primary">Release</Button>
+        </CardBody>
       </Card>
     );
   }

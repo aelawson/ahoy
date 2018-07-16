@@ -1,5 +1,11 @@
 import * as React from "react";
-import {Card, CardTitle, CardText, CardHeader} from 'material-ui/Card';
+import {
+  Card,
+  CardTitle,
+  CardBody,
+  Row,
+  Col
+} from 'reactstrap';
 
 import Repositories from './repositories';
 
@@ -8,15 +14,12 @@ const styles = require("./content.component.less");
 class Content extends React.Component<any, any> {
   render() {
     return (
-      <Card className="section">
-        <CardTitle
-          title="Release Plan"
-          subtitle="Configure release and execute action items"
-        />
-        <CardText>
+      <Row>
+        <Col sm="4">
+          <h3>Release Plan</h3>
           <Repositories/>
-        </CardText>
-      </Card>
+        </Col>
+      </Row>
     )
   }
 }
